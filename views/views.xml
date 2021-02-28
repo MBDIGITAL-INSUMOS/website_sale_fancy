@@ -1,0 +1,25 @@
+<odoo>
+  <data>
+    <record id="website_sale_product_fancy" model="ir.ui.view">
+        <field name="name">website.sale.product.fancy</field>
+        <field name="inherit_id" ref="website_sale.product"/>
+        <field name="arch" type="xml">
+		<xpath expr="//div[@id='product_details']/hr[@t-if='product.description_sale']" position="attributes">
+                        <attribute name="class">
+                                d-none
+                        </attribute>
+                </xpath>
+		<xpath expr="//div[@id='product_details']/div/p[@t-field='product.description_sale']" position="attributes">
+			<attribute name="class">
+				d-none
+			</attribute>
+		</xpath>
+		<xpath expr="//section" position="after">
+			<section class="container">
+				<div itemprop="description" t-field="product.description_sale" class="oe_structure mt16" id="product_full_description"/>
+			</section>
+		</xpath>
+        </field>
+     </record>
+  </data>
+</odoo>
