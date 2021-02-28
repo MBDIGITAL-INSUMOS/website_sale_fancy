@@ -4,6 +4,11 @@
         <field name="name">website.sale.product.fancy</field>
         <field name="inherit_id" ref="website_sale.product"/>
         <field name="arch" type="xml">
+		<xpath expr="//div[@id='product_details']" position="attributes">
+                        <attribute name="class">
+                                col-md-6 col-xl-6
+                        </attribute>
+                </xpath>
 		<xpath expr="//div[@id='product_details']/hr[@t-if='product.description_sale']" position="attributes">
                         <attribute name="class">
                                 d-none
@@ -14,8 +19,13 @@
 				d-none
 			</attribute>
 		</xpath>
+		<xpath expr="//t[1]/t[4]/div[1]/section[1]/div[2]/div[2]/p[3]" position="attributes">
+                        <attribute name="class">
+                        </attribute>
+                </xpath>
 		<xpath expr="//section" position="after">
 			<section class="container">
+				<hr />
 				<div itemprop="description" t-field="product.description_sale" class="oe_structure mt16" id="product_full_description"/>
 			</section>
 		</xpath>
